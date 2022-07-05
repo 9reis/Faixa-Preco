@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Faixa de preco </title>
+</head>
+<body>
+
+    <script>
+        //Criar um array de objetos de faixa de precos
+        // para que ele possa ser usaado em um site igual ao Mercado Livre
+    
+        //Faixas - tooltip,minimo e maximo
+
+
+        //PRIMEIRA OPCAO
+        let faixas = [
+            {tooltip: 'até R$ 700,00', minimo: 0, mamixo:700},
+            {tooltip: 'de R$ 700,00 a R$ 1000,00', minimo: 700, mamixo:1000},
+            {tooltip: 'de R$ 1000,00 ou mais', minimo: 1000, mamixo:9999999}
+
+        ];
+        
+
+        // SEGUNDA OPCAO (Factory Function)
+
+        function criaFaixaPreco(tooltip,minimo,maximo) {
+            return { 
+                tooltip,
+                minimo,
+                maximo,
+            }
+        }
+
+        let faixas2 = [
+            criaFaixaPreco('a',1,100),
+            criaFaixaPreco('b',100,1000),
+            criaFaixaPreco('c',1000,99999)
+        ]
+
+        // TERCEIRA OPCAO (Constructor Function)
+        function FaixaPreco (tooltip,minimo,maximo) {
+            this.tooltip = tooltip,
+            this.minimo = minimo,
+            this.maximo = maximo
+        }
+
+        let faixa3 = [
+            new FaixaPreco('d',10,20),
+            new FaixaPreco('e',20,30),
+            new FaixaPreco('f',30,40)
+        ]
+
+        console.log(faixas)
+        console.log(faixas2)
+        console.log(faixa3)
+
+    </script>
+    
+</body>
+</html>
